@@ -2,6 +2,8 @@
 #define maxN 1000001
 using namespace std;
 
+// code starts
+
 vector<int> sieve(){
     bool isPrime[maxN];
     for(int i=0;i<maxN;++i) isPrime[i]=true;
@@ -49,6 +51,8 @@ long long printPrimes(long long l, long long r, vector<int>& primes){
     }
     return count;
 }
+
+// code ends
 
 signed main(){
     vector<int> primes = sieve();
