@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#define maxN 1000001
+#define maxN 100000001
 using namespace std;
 
 bool isPrime[maxN-1];
@@ -19,6 +19,6 @@ int sieve(){
 
 signed main(){
     sieve();
-    cout<<isPrime[97]<<endl;
+    cout<<isPrime[100000]<<endl;
     return 0;
 }
