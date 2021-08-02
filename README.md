@@ -1,11 +1,4 @@
 # Algorithms
-GUIDE TO COMPETITIVE PROGRAMMING:
-
--by Striver (Software Engineer(Media.net), ex-Amazon, Candidate Master, 6*, Educator at Unacademy)
-
-It's advice to switch to CPP to avoid TLE issues at Codeforces and some platforms..
-Learn C++ STL from codeverse or takeUforward channel ..
-
 Follow CP sheet for practice problems:
 CP SHEET: https://bit.ly/tuf_CPList 
 SDE SHEET: https://bit.ly/takeUforward_SDE 
