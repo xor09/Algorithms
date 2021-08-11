@@ -2,18 +2,21 @@
 using namespace std;
 
 vector<int> prefix_function(string s){
-    int n=s.size();
+    int n=s.size(), len=0,i=1;
     vector<int> pi(n,0);
-    for(int i=1;i<n;++i){
-        int j = pi[i-1];
-
-        while(j>0 && s[i]!=s[j]) 
-            j=pi[j-1];
-
-        if(s[i]==s[j])
-             ++j;
-
-        pi[i]=j;
+    while(i<n){
+        if(s[len]==s[i]){
+            pi[i]=len+1;
+            ++i;
+            ++len;
+        }else{
+            if(len!=0){
+                len=pi[len-1];
+            }else{
+                pi[i]=0;
+                ++i;
+            }
+        }
     }
     return pi;
 }

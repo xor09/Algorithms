@@ -43,6 +43,7 @@ int main(){
 	string total = pat+"$"+str;
 	vector<int> z = z_algo(total);
 	int count=0;
+    cout<<endl;
 	for(int i=0; i<z.size(); ++i){
 		if(z[i]==pat.size()){
 			count++;
