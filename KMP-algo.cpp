@@ -4,6 +4,7 @@ using namespace std;
 vector<int> prefix_function(string s){
     int n=s.size(), len=0,i=1;
     vector<int> pi(n,0);
+    
     while(i<n){
         if(s[len]==s[i]){
             pi[i]=len+1;
