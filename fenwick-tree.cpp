@@ -12,15 +12,16 @@ using namespace std;
 const int MOD = 1e9+7; 
 
 
-void generateFenwickTreeNlogN(vector<int>, int);
+void generateFenwickTreeN(vector<int>, int);
 void update(int ,int, int);
 int prefixSum(int);
 int query(int,int);
 
 vector<int> fenwickArray(1000005,0);
-void generateFenwickTreeNlogN(vector<int> arr, int n){
+void generateFenwickTreeN(vector<int> arr, int n){
     for(int i=1;i<=n;++i){
-        update(i,arr[i],n);
+        int idesh = i-(i&-i);
+        fenwickArray[i]=arr[i]-arr[idesh];
     }
 }
 
@@ -53,8 +54,10 @@ int32_t main(){
        vector<int> arr(n+1,0);
        for(int i=1;i<=n;++i){
         cin>>arr[i];
+        //prefix sum
+        arr[i]+=arr[i-1];
        }
-       generateFenwickTreeNlogN(arr,n);
+       generateFenwickTreeN(arr,n);
        int noOfQ;
        cin>>noOfQ;
        char ch;
