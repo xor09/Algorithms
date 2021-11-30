@@ -1,67 +1,68 @@
 #include <bits/stdc++.h>
-#define maxN 1000001
+#define fastio ios::sync_with_stdio(false); cin.tie(NULL); 
+#define int long long
+#define ll long long
+#define ull unsigned long long
+#define endl "\n"
+#define INF (long long)1e15
+#define pb push_back
+#define debug(x) cout<<#x<<"-->"<<x<<endl
+#define print(x) cout<<x<<endl
+#define printc(x) cout<<x<<" "
+#define foreach(arr) for(auto &e : arr) cout<<e<<" "
+#define nextline cout<<"\n"
+#define MOD 1000000007
+#define mem(dp,i) memset(dp,i,sizeof(dp))
+#define timeTaken std::cout <<"\nTime: "<< float( clock () - begin_time ) /  CLOCKS_PER_SEC
 using namespace std;
+const int N = 1e5;
 
-// code starts
-
-vector<int> sieve(){
-    bool isPrime[maxN];
-    for(int i=0;i<maxN;++i) isPrime[i]=true;
-    isPrime[0] = isPrime[1] = false;
-
-    for(int i=2; i*i<maxN; ++i){
-        if(isPrime[i]){
-            for(int j=i*i; j<maxN; j+=i){
-                isPrime[j]=false;
-            }
-        }
-    }
-    
-    vector<int> primes;
-    
-    for(int i=2;i<maxN;++i){
-        if(isPrime[i]) primes.push_back(i);
-    }
-
-    return primes;
+vector<bool> sieveArr(N+1,true);
+vector<int> prime;
+void sieve(){
+   sieveArr[0] = sieveArr[1] = false;
+   for(ll i=2; i<=N; ++i){
+      if(sieveArr[i]){
+         prime.pb(i);
+         for(ll j=i*i; j<=N; j+=i){
+            sieveArr[j]=false;
+         }
+      }
+   }
 }
 
-long long printPrimes(long long l, long long r, vector<int>& primes){
-    bool isPrime[r-l+1];
+int32_t main(){
+   fastio;
+   //precompute
+   sieve();
+   const clock_t begin_time = clock();
+   ll t=1;
+   cin>>t;
+   while(t--){
+      ll m,n;
+      cin>>m>>n;
+      vector<bool> segment(n-m+1,true);
 
-    for(int i=0; i<r-l+1; ++i){
-        isPrime[i]=true;
-    }
+      for(auto &p : prime){
+         if(p*p > n) break;
 
-    for(int i=0; primes[i]*(long long)primes[i] < r; ++i){
-        int curPrime = primes[i];
-        long long base = (l/curPrime)*curPrime;
-        if(base < curPrime) base+=curPrime;
-        for(long long j=base; j<=r; j+=curPrime){
-            isPrime[j-l]=false;
-        }
-        if(base==curPrime){
-            isPrime[base-l] = true;
-        }
-    }
+         int start = (m/p)*p;
 
-    long long count=0;
-    for(int i=0;i<r-l+1;++i){
-        if(isPrime[i]) ++count;
-    }
-    return count;
-}
+         //special case
+         if(p>=m && p<=n) start = 2*p;
 
-// code ends
+         for(int j=start; j<=n; j+=p){
+            if(j < m) continue;
+            segment[j-m]=false;
+         }
+      }
 
-signed main(){
-    vector<int> primes = sieve();
-    int t;
-    cin>>t;
-    while(t--){
-        long long l,r;
-        cin>>l>>r;
-        cout<<printPrimes(l,r,primes); 
-    }
-    return 0;
+      for(int i=m; i<=n; ++i){
+         if(segment[i-m] && i!=1) print(i);
+      }
+      nextline;
+   
+   }//while
+   //timeTaken;
+   return 0;
 }
