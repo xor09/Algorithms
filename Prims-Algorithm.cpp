@@ -13,11 +13,13 @@ int solve(vector<vector<pair<int,int>>> &graph, int V){
         int curNode = pq.top().second;
         pq.pop();
         
-        if(!vis[curNode])total+=curWt;
-        vis[curNode] = true;
-        for(auto &childNode : graph[curNode]){
-            if(!vis[childNode.second]){
-                pq.push(childNode);
+        if(vis[curNode]==false){
+            total+=curWt;
+            vis[curNode] = true;
+            for(auto &childNode : graph[curNode]){
+                if(vis[childNode.second]==false){
+                    pq.push(childNode);
+                }
             }
         }
     }
