@@ -14,6 +14,7 @@ const int MOD = 1e9+7;
 const int N = 1e5+2;
 
 ll binaryExponential(int x, int n){
+   if(n==0) return 1;
    if(n==1) return x;
    ll res = binaryExponential(x,n/2);
    if(n&1) return res*res*x;

@@ -5,7 +5,11 @@
 #include <bits/stdc++.h>
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+<<<<<<< HEAD
 #define FASTIO ios::sync_with_stdio(false); cin.tie(NULL); 
+=======
+#define FASTIO ios::sync_with_stdio(false); cin.tie(NULL);
+>>>>>>> 33430134e46910a706b62b70b89cc805800d072d
 #define ll long long
 #define ull unsigned long long
 #define endl "\n"
@@ -14,11 +18,19 @@
 #define pb push_back
 #define f first
 #define s second
+<<<<<<< HEAD
 #define debug(x) cout<<#x<<"-->"<<x<<endl
 #define print(x) cout<<x<<endl
 #define printc(x) cout<<x<<" "
 #define foreach(arr) for(auto &e : arr) cout<<e<<" "
 #define nextline cout<<"\n"
+=======
+#define debug(x) cout << #x << "-->" << x << endl
+#define print(x) cout << x << endl
+#define printc(x) cout << x << " "
+#define foreach(arr)  for (auto &e : arr) cout << e << " "
+#define nextline cout << "\n"
+>>>>>>> 33430134e46910a706b62b70b89cc805800d072d
 #define MOD 1000000007
 #define mem(dp,i) memset(dp,i,sizeof(dp))
 #define timeTaken std::cout <<"\nTime: "<< float( clock () - begin_time ) /  CLOCKS_PER_SEC
