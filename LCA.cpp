@@ -79,6 +79,10 @@ int LCA(int u, int v)
             u = Par[u][j];
         }
     }
+    // if u/v is LCA(u,v)
+    if (u == v)
+        return u;
+
     for (int j = M - 1; j >= 0; --j)
     {
         if (Par[u][j] != Par[v][j])
