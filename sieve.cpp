@@ -2,7 +2,7 @@
 #define maxN 100000001
 using namespace std;
 
-bool isPrime[maxN-1];
+bool isPrime[maxN+1];
 int sieve(){
     for(int i=0;i<=maxN;++i) isPrime[i]=true;
     isPrime[0] = isPrime[1] = false;
